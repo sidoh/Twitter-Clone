@@ -30,5 +30,44 @@ describe UsersController do
       assigns(:user).should == @user
     end
   end
+  
+  describe "POST 'create'" do
+    before(:each) do
+      @attr = {
+        :name => '',
+        :email => '',
+        :password => '',
+        :password_confirmation => ''
+      }
+    end
+    
+    it "should not create a user" do
+      lambda do
+        post :create, :user => @attr
+      end.should_not change(User, :count)
+    end
+    
+    it "should render the 'new' page" do
+      post :create, :user => @attr
+      response.should render_template('new')
+    end
+    
+    describe "create a user" do
+      before(:each) do
+        @attr = {
+          :name => 'steve',
+          :email => 'steve@apple.com',
+          :password => 'macsrule',
+          :password_confirmation => 'macsrule'
+        }
+      end
+      
+      it "should create a user" do
+        lambda do
+          post :create, :user => @attr
+        end.should change(User, :count).by(1)
+      end
+    end
+  end
 
 end
