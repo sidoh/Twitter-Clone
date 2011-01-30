@@ -17,12 +17,14 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
   
-  # Email regular expression used for validation
+  # regular expressions used for validation
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  user_regex  = /^[a-z0-9_.-]+$/i
   
   # Validation
   validates :name,      :presence     => true,
-                        :length       => { :maximum => 50 }
+                        :length       => { :maximum => 50 },
+                        :format       => { :with => user_regex }
   validates :email,     :presence     => true,
                         :format       => { :with => email_regex },
                         :uniqueness   => { :case_sensitive => false }

@@ -124,3 +124,28 @@ a.signup_button {
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 }
+
+/* Gravatar */
+
+img.gravatar {
+	border: 1px solid #999999;
+	margin-bottom: -15px;
+}
+
+/* Content containers / areas */
+div.main {
+	width: 65%;
+	padding: 1em;
+	float: left;
+}
+
+div.sidebar {
+	width: 25%;
+	padding: 1em;
+	background-color: #ffffcc;
+	float: right;
+}
+
+div.spacer {
+	clear: both;
+}
