@@ -134,15 +134,13 @@ img.gravatar {
 
 /* Content containers / areas */
 div.main {
-	width: 65%;
 	padding: 1em;
-	float: left;
 }
 
 div.sidebar {
-	width: 25%;
+	width: 30%;
 	padding: 1em;
-	background-color: #ffffcc;
+	background-color: #99ffff;
 	float: right;
 }
 
@@ -185,4 +183,15 @@ div.field, div.actions {
 
 #error_explanation ul li {
 	font-size: 12px;
+}
+
+/* user index */
+
+ul.users {
+	margin-top: 1em;
+}
+
+.users li {
+	list-style: none;
+	margin: 15px;
 }

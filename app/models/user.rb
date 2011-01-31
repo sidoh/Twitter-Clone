@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   
   # regular expressions used for validation
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  user_regex  = /^[a-z0-9_.-]+$/i
+  user_regex  = /^[a-z0-9_. -]+$/i
   
   # Validation
   validates :name,      :presence     => true,
@@ -46,6 +46,11 @@ class User < ActiveRecord::Base
     
     return nil  if user.nil?
     return user if user.password_is?(password)
+  end
+  
+  def self.authenticate_with_salt( id, salt )
+    user = find_by_id(id)
+    (user && user.salt == salt) ? user : nil
   end
   
 private
