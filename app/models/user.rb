@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
   
+  has_many :microposts, :dependent => :destroy
+  
   # regular expressions used for validation
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   user_regex  = /^[a-z0-9_. -]+$/i
@@ -51,6 +53,11 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt( id, salt )
     user = find_by_id(id)
     (user && user.salt == salt) ? user : nil
+  end
+  
+  # Returns some posts for the user's feed.
+  def feed
+    Micropost.where("user_id = ?", id)
   end
   
 private

@@ -46,6 +46,14 @@ describe UsersController do
       get :show, :id => @user
       assigns(:user).should == @user
     end
+    
+    it "should show the user's microposts" do
+      mp1 = Factory(:micropost, :user => @user, :content => "Post134")
+      mp2 = Factory(:micropost, :user => @user, :content => "Post234")
+      get :show, :id => @user
+      response.should have_selector("span.content", :content => mp1.content)
+      response.should have_selector("span.content", :content => mp2.content)
+    end
   end
   
   describe "POST 'create'" do

@@ -3,7 +3,7 @@
 }
 
 body {
-	background: #ddffff;
+	background: #ccffff;
 }
 
 header {
@@ -129,19 +129,36 @@ a.signup_button {
 
 img.gravatar {
 	border: 1px solid #999999;
-	margin-bottom: -15px;
 }
 
 /* Content containers / areas */
+
+td.main {
+	width: 70%;
+	padding: 1em;
+}
+
+td.sidebar {
+	width: 30%;
+	padding: 1em;
+	vertical-align: top;
+	background: #ffffcc;
+}
+
 div.main {
 	padding: 1em;
 }
 
 div.sidebar {
-	width: 30%;
+	width: 150px;
 	padding: 1em;
-	background-color: #99ffff;
+	background-color: #33aaff;
 	float: right;
+	color: #eeeeee;
+}
+
+div.sidebar a {
+	color: #ffffff;
 }
 
 div.spacer {
@@ -194,4 +211,61 @@ ul.users {
 .users li {
 	list-style: none;
 	margin: 15px;
+}
+
+/* microposts */
+
+h1.micropost {
+	marign-bottom: 0.3em;
+}
+
+table.microposts {
+	margin-top: 1em;
+}
+
+table.microposts tr {
+	height: 70px;
+}
+
+table.microposts tr td.gravatar {
+	border-top: 1px solid #cccccc;
+	vertical-align: top;
+	width: 50px;
+}
+
+table.microposts tr td.micropost {
+	border-top: 1px solid #cccccc;
+	vertical-align: top;
+	padding-top: 10px;
+}
+
+table.microposts tr td.micropost span.timestamp {
+	display: block;
+	font-size: 85%;
+	color: #666666;
+}
+
+div.user_info img {
+	padding-right: 0.1em;
+}
+
+div.user_info a {
+	text-decoration: none;
+}
+
+div.user_info span.user_name {
+	position: absolute;
+}
+
+div.user_info span.microposts {
+	font-size: 80%;
+}
+
+form.new_micropost {
+	margin-bottom: 2em;
+}
+
+form.new_micropost textarea {
+	height: 4em;
+	margin-bottom: 0;
 }
